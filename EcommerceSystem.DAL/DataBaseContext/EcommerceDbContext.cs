@@ -37,14 +37,8 @@ namespace EcommerceSystem.DAL.DataBaseContext
         public DbSet<Product> Products { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set; }
-        public EcommerceSystemdb()
-        {
-            
-        }
-        public EcommerceSystemdb(DbContextOptions<EcommerceSystemdb> options) : base(options)
-        {
-        }
-
+        public EcommerceSystemdb(){}
+        public EcommerceSystemdb(DbContextOptions<EcommerceSystemdb> options) : base(options) { }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
@@ -53,7 +47,6 @@ namespace EcommerceSystem.DAL.DataBaseContext
                 optionsBuilder.UseSqlServer(connectionString);
             }
         }
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Order>()

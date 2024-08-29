@@ -21,7 +21,6 @@ namespace EcommerceSystem.DAL
         }
         public async Task RemoveProductAsync(int Id)
         {
-           // var context = new EcommerceSystemdb();
             var product = await _context.Products.FindAsync(Id);
             if (product != null)
             {
@@ -36,7 +35,6 @@ namespace EcommerceSystem.DAL
         }
         public async Task AddProductAsync(ProductDto productDto)
         {
-            //var context = new EcommerceSystemdb();
             var product = new Product { Name = productDto.Name, Price = productDto.Price, Stock = productDto.Stock };
             await _context.Products.AddAsync(product);
             await _context.SaveChangesAsync();
